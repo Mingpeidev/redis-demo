@@ -1,33 +1,53 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.31.15:3306/ssm_knowledge?useUnicode=true&characterEncoding=UTF-8
+    # db config
+    url: jdbc:mysql://192.168.31.15:3306/ssm_knowledge?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&connectTimeout=3000&socketTimeout=1000
     username: root
     password: 123456
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 最小空闲
     minIdle: 5
+    # 最大连接数
     maxActive: 100
+    # 初始连接数
     initialSize: 10
+    # 最长等待时间
     maxWait: 60000
+    # 毫秒秒检查一次连接池中空闲的连接,把空闲时间超过minEvictableIdleTimeMillis毫秒的连接断开,直到连接池中的连接数到minIdle为止
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
+
+    # 用来检测连接是否有效的sql
     validationQuery: select 'x'
     testWhileIdle: true
+    # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
     testOnBorrow: false
+    # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
     testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 50
+
+    # 活动连接的最大空闲时间 默认300s
+    #removeAbandonedTimeout:60000
+    # 是否清理removeAbandonedTimeout秒没有使用的活动连接,清理后并没有放回连接池
     removeAbandoned: true
-    # stat,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    # stat,wall,log4j # 监控统计用的filter:stat,日志用的filter:log4j,防御sql注入的filter:wall
     filters: stat
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-    useGlobalDataSourceStat: true # 合并多个DruidDataSource的监控数据
-    druidLoginName: wjf # 登录druid的账号
-    druidPassword: wjf # 登录druid的密码
-    cachePrepStmts: true  # 开启二级缓存
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+    # 登录druid的账号
+    druidLoginName: root
+    # 登录druid的密码
+    druidPassword: root
+    # 开启二级缓存
+    cachePrepStmts: true
 mybatis:
-  typeAliasesPackage: com.mao.springbootdemo.entity
-  mapperLocations: classpath:/com.mao.springbootdemo.dao.mapper/*.xml
-  mapperScanPackage: com.mao.springbootdemo.dao
+  #typeAliasesPackage: com.mao.redisdemo.entity
+  mapperLocations: classpath:/mapper/*.xml
+  mapperScanPackage: com.mao.redisdemo.dao.mapper
   configLocation: classpath:/mybatis-config.xml

@@ -17,9 +17,15 @@ class RedisDemoApplicationTests {
     }
 
     @Test
-    public void test() {
+    public void testDelete() {
         User user = userMapper.selectByPrimaryKey(12);
-        System.out.println(user.getPassword()+user.getUsername());
+        System.out.println(user.getPassword() + user.getUsername());
+    }
+
+    @Test
+    public void testFind() {
+        User user = userMapper.find(1);
+        System.out.println(user.toString());
     }
 
 }

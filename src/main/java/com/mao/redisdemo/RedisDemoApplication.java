@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+//加了@MapperScan可不加@Mapper
 @MapperScan("com.mao.redisdemo.dao")
 public class RedisDemoApplication {
 
