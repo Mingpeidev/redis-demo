@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -88,5 +89,23 @@ public class UserController {
     public User getByCache(String id) {
         User user = userCacheService.findById(id);
         return user;
+    }
+
+    /**
+     * 自定义key和超时时间 序列化
+     *
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getExpire", method = RequestMethod.GET)
+    public User findByIdTtl(String id) {
+        User u = new User();
+        try {
+            u = userCacheService.findByIdTtl(id);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return u;
     }
 }

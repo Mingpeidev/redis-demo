@@ -63,7 +63,7 @@ public class UserCacheService {
      * @param id
      * @return
      */
-    @Nullable
+    @Nullable//可以标注在方法、字段、参数之上，表示对应的值可以为空
     @Cacheable(key = "#p0")
     public User findById(String id) {
         System.err.println("根据id=" + id + "获取用户对象，从数据库中获取");
@@ -89,12 +89,19 @@ public class UserCacheService {
     }
 */
 
-   /* @Nullable
-    @Cacheable(value = "UserInfoList", keyGenerator = "simpleKeyGenerator") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    /**
+     * 自定义key生成规则和超时时间
+     * value指定缓存名称，不指定用默认
+     *
+     * @param id
+     * @return
+     */
+    @Nullable
+    @Cacheable(value = "UserInfoList", keyGenerator = "simpleKeyGenerator")
     public User findByIdTtl(String id) {
         System.err.println("根据id=" + id + "获取用户对象，从数据库中获取");
-        Assert.notNull(id, "id不用为空");
-        return this.userMapper.find(id);
-    }*/
+        Assert.notNull(id, "id不能为空");
+        return this.userMapper.find(Integer.valueOf(id));
+    }
 
 }

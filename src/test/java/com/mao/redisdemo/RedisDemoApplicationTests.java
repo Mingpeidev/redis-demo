@@ -35,7 +35,7 @@ class RedisDemoApplicationTests {
     @Test
     public void redisCache() {
 
-        String flag = "1";
+        String flag = "5";
         User user = new User();
 
         User user1 = new User();
@@ -56,6 +56,8 @@ class RedisDemoApplicationTests {
             case "4":
                 userCacheService.deleteById("1");
                 break;
+            case "5":
+                user = userCacheService.findByIdTtl("1");
             default:
                 break;
         }
