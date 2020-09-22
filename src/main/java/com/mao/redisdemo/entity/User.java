@@ -1,6 +1,9 @@
 package com.mao.redisdemo.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = -5793858221104824631L;
     private Integer id;
 
     private String username;

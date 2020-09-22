@@ -11,7 +11,7 @@ import javax.annotation.Resource;
  * @author Mingpeidev
  * @date 2019/9/20 17:34
  */
-@Service
+@Service//同Component，表示业务层
 public class UserServiceImpl implements UserService {
 
     @Resource

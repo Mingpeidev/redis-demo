@@ -41,7 +41,7 @@
             </exclusions>
         </dependency>
 
-        <!--mysql start-->
+        <!-- mysql start -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -88,19 +88,22 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
-        <!--redis-->
+        <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <!--<dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-        </dependency>
+        <!-- 可以结合redis、ehcache等缓存 -->
+        <!-- 一级缓存是：sqlSession，sql建立连接到关闭连接的数据缓存。二级缓存是：全局 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
         </dependency>-->
     </dependencies>
 

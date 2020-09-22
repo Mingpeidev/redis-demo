@@ -5,10 +5,10 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Mapper
-@Component
+@Repository//同Component，表示Dao层
 public interface UserMapper {
     @Delete("delete from user where id=#{id}")
     int deleteByPrimaryKey(@Param("id") Integer id);

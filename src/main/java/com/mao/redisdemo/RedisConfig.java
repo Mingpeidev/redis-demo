@@ -12,9 +12,9 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @description
  */
 @Configuration
-@EnableCaching
+@EnableCaching//开启缓存注解
 public class RedisConfig {
-    
+
     @Bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
