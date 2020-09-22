@@ -73,7 +73,7 @@ public class RedisConfig {
 
     private Map<String, RedisCacheConfiguration> getRedisCacheConfigurationMap() {
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
-        //value="UserInfoList"时，超时时间
+        //当value="UserInfoList"时，超时时间100
         redisCacheConfigurationMap.put("UserInfoList", this.getRedisCacheConfigurationWithTtl(100));
         redisCacheConfigurationMap.put("UserInfoListAnother", this.getRedisCacheConfigurationWithTtl(18000));
 
