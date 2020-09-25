@@ -18,6 +18,7 @@ import javax.annotation.Resource;
 /**
  * @author Mingpeidev
  * @date 2019/9/20 17:33
+ * @description mysql和redis整合
  */
 @Controller//同Component，表示控制层
 @RequestMapping("/user")

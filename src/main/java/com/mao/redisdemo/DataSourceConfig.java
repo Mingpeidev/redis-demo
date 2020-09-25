@@ -24,8 +24,7 @@ import java.sql.SQLException;
  * @description 集成Druid 配置
  */
 @Configuration
-/*@MapperScan("com.mao.redisdemo.dao")
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 50)*/
+//@MapperScan("com.mao.redisdemo.dao")
 public class DataSourceConfig {
     private Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
 

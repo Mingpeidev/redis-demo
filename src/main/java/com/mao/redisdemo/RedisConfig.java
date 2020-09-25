@@ -17,6 +17,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -25,10 +26,13 @@ import java.util.Map;
 /**
  * @author Mingpeidev
  * @date 2020/9/18 14:17
- * @description
+ * @description redisConfig
  */
 @Configuration
 @EnableCaching//开启缓存注解
+//开启redis session缓存,maxInactiveIntervalInSeconds指定缓存的时间  spring:session:sessions:expires:+‘sessionId’的过期时间
+//经过下面的配置后，Session调用就会自动去Redis存取
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 50)
 public class RedisConfig {
 
     @Bean
@@ -80,6 +84,12 @@ public class RedisConfig {
         return redisCacheConfigurationMap;
     }
 
+    /**
+     * 设置超时时间和定义序列化方式
+     *
+     * @param seconds
+     * @return
+     */
     private RedisCacheConfiguration getRedisCacheConfigurationWithTtl(Integer seconds) {
         //自定义序列化方式
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);

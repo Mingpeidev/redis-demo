@@ -94,17 +94,26 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <!-- 可以结合redis、ehcache等缓存 -->
+        <!-- 可以结合redis、ehcache等缓存 todo 不加也能运行？？？ -->
         <!-- 一级缓存是：sqlSession，sql建立连接到关闭连接的数据缓存。二级缓存是：全局 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
-        <!--<dependency>
+        <!-- redis实现分布式集群配置 实现session共享 -->
+        <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
-        </dependency>-->
+        </dependency>
+
+        <!-- 解决Warning:java: 未知的枚举常量 javax.annotation.meta.When.MAYBE
+             原因: 找不到javax.annotation.meta.When的类文件 -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

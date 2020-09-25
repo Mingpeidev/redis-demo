@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * @author Mingpeidev
  * @date 2020/9/18 14:23
- * @description
+ * @description 基础redis实现
  */
 @RestController
 @RequestMapping("/redis")
