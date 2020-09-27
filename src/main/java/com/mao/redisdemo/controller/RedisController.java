@@ -1,6 +1,6 @@
 package com.mao.redisdemo.controller;
 
-import com.mao.redisdemo.RedisService;
+import com.mao.redisdemo.utils.RedisService;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

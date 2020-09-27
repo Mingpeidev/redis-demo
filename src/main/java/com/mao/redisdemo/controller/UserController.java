@@ -1,6 +1,6 @@
 package com.mao.redisdemo.controller;
 
-import com.mao.redisdemo.RedisService;
+import com.mao.redisdemo.utils.RedisService;
 import com.mao.redisdemo.dao.UserMapper;
 import com.mao.redisdemo.entity.User;
 import com.mao.redisdemo.service.UserCacheService;
