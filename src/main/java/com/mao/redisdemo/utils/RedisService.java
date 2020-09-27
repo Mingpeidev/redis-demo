@@ -270,7 +270,7 @@ public class RedisService {
 
 
     /**
-     * 有序集合获取排名
+     * 有序集合获取排名---正序，小到大
      *
      * @param key
      */
@@ -317,7 +317,7 @@ public class RedisService {
     }
 
     /**
-     * 有序集合获取排名
+     * 有序集合获取排名---倒叙，大到小
      *
      * @param key
      */
